@@ -1,0 +1,21 @@
+services:
+	- App\Core\RouterFactory::createRouter
+	- App\Model\Tree\Mappers\NodeResponseMapper
+
+	tree.storage.category:
+	    factory: App\Model\Tree\Storages\DatabaseTreeStorage
+	    arguments:
+	        table: category_tree_nodes
+	    autowired: true
+
+	tree.manager.category:
+	    factory: App\Model\Tree\TreeManager
+	    arguments:
+	        treeStorage: @tree.storage.category
+	    autowired: true
+
+search:
+	-	in: %appDir%
+		classes:
+			- *Factory
+			- *Facade

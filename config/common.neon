@@ -1,0 +1,25 @@
+parameters:
+
+
+application:
+	errorPresenter: Error
+	mapping:
+	    Front: App\UI\Front\Presenters\*Presenter
+	    Api: App\Api\Presenters\*Presenter
+
+
+database:
+	dsn: 'mysql:host=database;dbname=app'
+	user: root
+	password: secret
+
+
+latte:
+	strictTypes: yes
+	strictParsing: yes
+
+
+di:
+	export:
+		parameters: no
+		tags: no
